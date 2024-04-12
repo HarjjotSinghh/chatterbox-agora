@@ -57,9 +57,9 @@ function Videos(props: { channelName: string; AppID: string }) {
   const unit = "minmax(0, 1fr) ";
 
   return (
-    <div className="flex flex-col justify-between w-full h-screen p-1">
+    <div className="grid grid-cols-2 w-full h-full p-2">
       <div
-        className={`grid gap-1 flex-1`}
+        className={`grid gap-2 flex-1`}
         style={{
           gridTemplateColumns:
             remoteUsers.length > 9
@@ -68,7 +68,7 @@ function Videos(props: { channelName: string; AppID: string }) {
               ? unit.repeat(3)
               : remoteUsers.length > 1
               ? unit.repeat(2)
-              : unit,
+              : unit.repeat(2),
         }}
       >
         <LocalVideoTrack

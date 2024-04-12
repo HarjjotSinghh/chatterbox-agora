@@ -1,27 +1,76 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
+  @tailwind components;
+  @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 255, 255, 255;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  @layer base {
+    :root {
+      --background: 270 8% 95%;
+      --foreground: 240 8% 5%;
+  
+      --card: 270 8% 95%;
+      --card-foreground: 240 8% 5%;
+  
+      --popover: 270 8% 95%;
+      --popover-foreground: 240 8% 5%;
+  
+      --primary: 253 94% 53%;
+      --primary-foreground: 300 9% 98%;
+  
+      --secondary: 252 11% 91%;
+      --secondary-foreground: 240 8% 5%;
+  
+      --muted: 240 9% 91%;
+      --muted-foreground: 254 9% 45%;
+  
+      --accent: 252 11% 91%;
+      --accent-foreground: 240 8% 5%;
+  
+      --destructive: 0 84% 60%;
+      --destructive-foreground: 0 0% 98%;
+  
+      --border: var(--primary);
+      --input: var(--primary);
+      --ring: var(--primary);
+  
+      --radius: 0.7rem;
+    }
+    
+    .dark {
+      --background: 240 7% 8%;
+      --foreground: 300 9% 98%;
+  
+      --card: 240 6% 10%;
+      --card-foreground: 300 9% 98%;
+  
+      --popover: 240 6% 10%;
+      --popover-foreground: 300 9% 98%;
+  
+      --primary: 253 94% 53%;
+      --primary-foreground: 300 9% 98%;
+  
+      --secondary: 255 8% 19%;
+      --secondary-foreground: 300 9% 98%;
+  
+      --muted: 251 7% 29%;
+      --muted-foreground: 252 8% 49%;
+  
+      --accent: 253 71% 19%;
+      --accent-foreground: 300 9% 98%;
+  
+      --destructive: 0 84% 60%;
+      --destructive-foreground: 0 0% 98%;
+  
+      --border: var(--primary);
+      --input: var(--primary);
+      --ring: var(--primary);
+    }
   }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+  @layer base {
+    * {
+      @apply border-border;
+    }
+    body {
+      @apply bg-background text-foreground;
+    }
+  }

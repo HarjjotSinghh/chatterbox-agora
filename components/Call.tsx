@@ -15,7 +15,7 @@ import AgoraRTC, {
 
 function Call(props: { appId: string; channelName: string }) {
   const client = useRTCClient(
-    AgoraRTC.createClient({ codec: "vp8", mode: "rtc" })
+    AgoraRTC.createClient({ codec: "vp8", mode: "rtc" }), 
   );
 
   return (
@@ -23,7 +23,7 @@ function Call(props: { appId: string; channelName: string }) {
       <Videos channelName={props.channelName} AppID={props.appId} />
       <div className="fixed z-10 bottom-0 left-0 right-0 flex justify-center pb-4">
         <a
-          className="px-5 py-3 text-base font-medium text-center text-white bg-red-400 rounded-lg hover:bg-red-500 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900 w-40"
+          className="px-5 py-3 text-base font-medium text-center text-white bg-red-400 rounded-lg hover:bg-red-500 focus:ring-0 w-40"
           href="/"
         >
           End Call
@@ -59,7 +59,7 @@ function Videos(props: { channelName: string; AppID: string }) {
   return (
     <div className="flex flex-col justify-between w-full h-screen p-1">
       <div
-        className={`grid  gap-1 flex-1`}
+        className={`grid gap-1 flex-1`}
         style={{
           gridTemplateColumns:
             remoteUsers.length > 9
@@ -74,7 +74,7 @@ function Videos(props: { channelName: string; AppID: string }) {
         <LocalVideoTrack
           track={localCameraTrack}
           play={true}
-          className="w-full h-full"
+          className="w-full h-full rounded-lg [&_video]:object-contain"
         />
         {remoteUsers.map((user, i) => (
           <RemoteUser key={i} user={user} />
